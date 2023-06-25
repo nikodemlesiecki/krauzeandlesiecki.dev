@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>krauzeandlesiecki web developers team portfolio</title>
+
+    <style>
+        /* Reset */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Navbar */
+
+        .navbar {
+            background-color: #000;
+            color: #fff;
+            padding: 20px 0;
+            position: relative;
+        }
+
+        .navbar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar-logo {
+            width: 250px;
+        }
+
+        .navbar-logo #logo {
+            font-size: 20px;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 3px;
+            margin-left: 4px;
+            background: white;
+        }
+
+        .cursor.blink {
+            animation: blink 0.8s ease-in-out infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% {
+                background: white;
+            }
+            40%, 50% {
+                background: transparent;
+            }
+        }
+
+
+        .navbar-menu-list {
+            display: flex;
+            list-style: none;
+        }
+
+        .navbar-menu-item {
+            margin: 0 10px;
+        }
+
+        .navbar-menu-link {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .navbar-menu-link:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+
+        .navbar-hamburger-menu {
+            display: none;
+        }
+
+        .navbar-hamburger-menu-line {
+            width: 30px;
+            height: 2px;
+            background-color: #fff;
+            margin: 5px 0;
+        }
+
+        .navbar-menu-list--active {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            width: 100%;
+            background-color: #000;
+            padding: 20px 0;
+        }
+
+        /* End Navbar */
+
+        /* Hero */
+
+        .hero {
+            background-color: #000;
+            color: #fff;
+            padding: 100px 0;
+        }
+
+        .hero-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .hero-content {
+            width: 50%;
+        }
+
+        .hero-title {
+            font-size: 50px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .hero-title-highlight {
+            color: #fff;
+        }
+
+        .hero-description {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .hero-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #fff;
+            color: #000;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .hero-button:hover {
+            background-color: #ffffffb2;
+            color: #000;
+        }
+
+        .hero-image {
+            width: 50%;
+        }
+
+        .hero-image img {
+            width: 100%;
+        }
+
+        /* End Hero */
+
+        /* About Us */
+
+        .about-us {
+            padding: 100px 0;
+        }
+
+        .about-us-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .about-us-content {
+            width: 50%;
+        }
+
+        .about-us-title {
+            font-size: 50px;
+            font-weight: 700;
+            margin-bottom: 70px;
+        }
+
+        .about-us-owner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 50px;
+            gap: 50px;
+        }
+
+        .about-us-owner-image {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 80%;
+        }
+
+        .about-us-owner-image img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: scale-down;
+            border-style: solid;
+            border-width: 5px;
+            border-left-color: #39c8e7;
+            border-right-color: #39c8e7;
+            border-bottom-color: transparent;
+            border-top-color: transparent;
+        }
+
+        #owner-job {
+            text-align: center;
+            font-size: 20px;
+            font-weight: 700;
+            margin-top: 20px;
+        }
+
+        .about-us-owner-description {
+            width: 400px;
+        }
+
+        .about-us-owner-description-text {
+            width: 100%;
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+
+        
+        /* End About Us */
+
+        /* Our Projects */
+
+        .our-projects {
+            padding: 100px 0;
+        }
+
+        .our-projects-title {
+            font-size: 50px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .our-projects-description {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .our-projects-tiles-container {
+            margin-top: 50px;
+        }
+
+        .our-projects-tiles {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 20px;
+        }
+
+        .our-projects-tile {
+            width: 100%;
+        }
+
+        .our-projects-tile img {
+            width: 100%;
+        }
+
+        .our-projects-tile--active {
+            transform: scale(1.05);
+            transition: transform 0.1s ease-in-out;
+        }
+
+        /* End Our Projects */
+
+        /* Footer */
+
+        .footer {
+            background-color: #000;
+            color: #fff;
+            padding: 50px 0;
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-logo {
+            width: 150px;
+        }
+
+        .footer-logo img {
+            width: 100%;
+        }
+
+        .footer-socials-list {
+            display: flex;
+            list-style: none;
+        }
+
+        .footer-socials-item {
+            margin: 0 10px;
+        }
+
+        .footer-socials-link {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .footer-socials-link:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+
+        .footer-copy {
+            font-size: 14px;
+        }
+
+        /* End Footer */
+
+        /* Responsive */
+
+            /* Navbar */
+
+            @media (max-width: 768px) {
+                .navbar-container {
+                    flex-direction: row;
+                }
+
+                .navbar-menu-list {
+                    display: none;
+                }
+
+                .navbar-hamburger-menu {
+                    display: block;
+                }
+
+                .navbar-menu-list--active {
+                    display: flex;
+                    flex-direction: column;
+                    position: absolute;
+                    top: 100%;
+                    left: 0;
+                    background-color: #000;
+                    padding: 10px;
+                    z-index: 1;
+                }
+
+                .navbar-menu-list--active .navbar-menu-item {
+                    margin: 10px 0;
+                }
+
+                .navbar-menu-list--active .navbar-menu-link {
+                    color: #fff;
+                    text-decoration: none;
+                }
+
+                .navbar-menu-list--active .navbar-menu-link:hover {
+                    color: #fff;
+                    text-decoration: underline;
+                }
+            }
+
+            /* End Navbar */
+
+            /* Hero */
+
+            @media (max-width: 768px) {
+                .hero-container {
+                    flex-direction: column;
+                }
+
+                .hero-content {
+                    width: 100%;
+                    margin-bottom: 50px;
+                }
+
+                .hero-image {
+                    width: 100%;
+                }
+            }
+
+            /* End Hero */
+
+            /* About Us */
+
+            @media (max-width: 768px) {
+                .about-us-container {
+                    flex-direction: column;
+                }
+
+                .about-us-content {
+                    width: 100%;
+                    margin-bottom: 50px;
+                }
+
+                .about-us-owner {
+                    flex-direction: column;
+                }
+
+                .about-us-owner-image {
+                    width: 100%;
+                    margin-bottom: 20px;
+                }
+
+                .about-us-owner-description {
+                    width: 100%;
+                }
+            }
+
+            /* End About Us */
+
+            /* Our Projects */
+
+            @media (max-width: 768px) {
+                .our-projects-tiles {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+            }
+
+            /* End Our Projects */
+
+            /* Footer */
+
+            @media (max-width: 768px) {
+                .footer-container {
+                    flex-direction: column;
+                }
+
+                .footer-logo {
+                    margin-bottom: 20px;
+                }
+
+                .footer-socials-list {
+                    flex-direction: column;
+                }
+
+                .footer-socials-item {
+                    margin: 10px 0;
+                }
+            }
+
+            /* End Footer */
+
+
+
+
+    </style>
+</head>
+<body>
+    <!-- Navbar with hamburger menu -->
+
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <div class="navbar-logo">
+                <p><span id="logo"></span><span class="cursor blink">&nbsp;</span></p>
+            </div>
+            <ul class="navbar-menu-list">
+                <li class="navbar-menu-item">
+                    <a href="#" class="navbar-menu-link">Home</a>
+                </li>
+                <li class="navbar-menu-item">
+                    <a href="#" class="navbar-menu-link">About Us</a>
+                </li>
+                <li class="navbar-menu-item">
+                    <a href="#" class="navbar-menu-link">Our Projects</a>
+                </li>
+                <li class="navbar-menu-item">
+                    <a href="#" class="navbar-menu-link">Contact</a>
+                </li>
+            </ul>
+            <div class="navbar-hamburger-menu">
+                <div class="navbar-hamburger-menu-line"></div>
+                <div class="navbar-hamburger-menu-line"></div>
+                <div class="navbar-hamburger-menu-line"></div>
+            </div>
+        </div>
+    </nav>
+
+    
+    
+
+
+    <!-- End Navbar -->
+
+    <!-- Hero -->
+
+    <section class="hero">
+        <div class="container hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">We are <span class="hero-title-highlight">Konrad Krauze & Nikodem Lesiecki</span></h1>
+                <p class="hero-description">We are a team of web developers who create websites and web applications.</p>
+                <a href="#" class="hero-button">Contact Us</a>
+            </div>
+            <div class="hero-image">
+                <img src="assets/images/hero-image.svg" alt="hero image">
+            </div>
+        </div>
+    </section>
+
+    <!-- End Hero -->
+
+    <!-- About Us -->
+
+    <section class="about-us">
+        <div class="container about-us-container">
+            <div class="about-us-content">
+                <h2 class="about-us-title">About Us</h2>
+                <div class="about-us-owner">
+                    <div class="about-us-owner-image">
+                        <img src="assets/images/nikodem-lesiecki.png" alt="nikodem lesiecki">
+                        <p id="owner-job">Founder & Web Developer</p>
+                    </div>
+                    <div class="about-us-owner-description">
+                        <p class="about-us-owner-description-text">
+                            Hi, I’m Nikodem Lesiecki. A passionate Front-End React<br>
+                            Developer based in Kalisz, Poland. 📍
+                        </p>
+                    </div>
+                </div>
+                <div class="about-us-owner">
+                    <div class="about-us-owner-image">
+                        <img src="assets/images/konrad-krauze.png" alt="konrad krauze">
+                        <p id="owner-job">Web & Back-End Developer</p>
+                    </div>
+                    <div class="about-us-owner-description">
+                        <p class="about-us-owner-description-text">
+                            Hi, I’m Konrad Krauze. A passionate Front-End and Back-End<br>
+                            Developer based in Wroclaw, Poland. 📍
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+                
+
+
+
+
+    <!-- Our Projects -->
+
+    <section class="our-projects">
+        <div class="container our-projects-container">
+            <div class="our-projects-content">
+                <h2 class="our-projects-title">Our Projects</h2>
+                <p class="our-projects-description">We are a team of web developers who create websites and web applications.</p>
+            </div>
+        </div>
+
+        <!-- Project tiles -->
+
+        <div class="container our-projects-tiles-container">
+            <div class="our-projects-tiles">
+                <div class="our-projects-tile">
+                    <img src="assets/images/project1.png" alt="our projects tile 1">
+                </div>
+                <div class="our-projects-tile">
+                    <img src="assets/images/project1.png" alt="our projects tile 2">
+                </div>
+                <div class="our-projects-tile">
+                    <img src="assets/images/project1.png" alt="our projects tile 3">
+                </div>
+                <div class="our-projects-tile">
+                    <img src="assets/images/project1.png" alt="our projects tile 4">
+                </div>
+                <div class="our-projects-tile">
+                    <img src="assets/images/project1.png" alt="our projects tile 5">
+                </div>
+                <div class="our-projects-tile">
+                    <img src="assets/images/project1.png" alt="our projects tile 6">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- End Our Projects -->
+
+    <!-- Footer -->
+
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-logo">
+                <img src="assets/icons/logo white.svg" alt="logo">
+            </div>
+            <!-- links to socials for example github, linkedin, fiverr, instagram etc. -->
+            <ul class="footer-socials-list">
+                <li class="footer-socials-item">
+                    <a href="#" class="footer-socials-link">Github</a>
+                </li>
+                <li class="footer-socials-item">
+                    <a href="#" class="footer-socials-link">Linkedin</a>
+                </li>
+                <li class="footer-socials-item">
+                    <a href="#" class="footer-socials-link">Fiverr</a>
+                </li>
+                <li class="footer-socials-item">
+                    <a href="#" class="footer-socials-link">Instagram</a>
+                </li>
+            </ul>
+
+            <!-- copyrights -->
+            
+            <p class="footer-copy">&copy; 2020 Krauze & Lesiecki</p>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar
+
+        const navbarMenuList = document.querySelector('.navbar-menu-list');
+        const navbarHamburgerMenu = document.querySelector('.navbar-hamburger-menu');
+
+        navbarHamburgerMenu.addEventListener('click', () => {
+            navbarMenuList.classList.toggle('navbar-menu-list--active');
+        });
+
+        // Close the navbar menu when a menu item is clicked
+        const navbarMenuLinks = document.querySelectorAll('.navbar-menu-link');
+
+        navbarMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navbarMenuList.classList.remove('navbar-menu-list--active');
+            });
+        });
+
+
+        // Get the typed-text element
+        const typedText = document.querySelector('#logo');
+
+        // Get the cursor element
+        const cursor = document.querySelector('.cursor');
+      
+        // Define the text to be typed
+        const textToType = "krauzeandlesiecki.dev";
+      
+        // Set the initial values
+        let textIndex = 0;
+        let isDeleting = false;
+      
+        // Function to simulate typing effect
+        function type() {
+          // Get the current text
+          const currentText = textToType.substring(0, textIndex);
+      
+          // Set the text of the typed-text element
+          typedText.textContent = currentText;
+      
+          // Increment or decrement the text index based on whether we are typing or deleting
+          if (isDeleting) {
+            textIndex--;
+          } else {
+            textIndex++;
+          }
+      
+          // Calculate the typing speed randomly
+          const typingSpeed = Math.random() * 200 + 100;
+      
+          // Set a shorter delay when deleting the text
+          const delay = isDeleting ? typingSpeed / 1 : typingSpeed;
+      
+          // Add or remove the blink class to show/hide the cursor
+          if (isDeleting) {
+            cursor.classList.add('blink');
+          } else {
+            cursor.classList.remove('blink');
+          }
+      
+          // Check if we have typed/deleted all the text
+          if (!isDeleting && textIndex === textToType.length) {
+            // Set the isDeleting flag to true for deleting effect
+            isDeleting = true;
+          } else if (isDeleting && textIndex === 0) {
+            // Reset the isDeleting flag and move to typing effect
+            isDeleting = false;
+          }
+      
+          // Call the type function recursively after the delay
+          setTimeout(type, delay);
+        }
+      
+        // Start the typing effect
+        setTimeout(type, 1000);
+
+        // End Navbar
+    
+        // Our Projects
+    
+        const ourProjectsTiles = document.querySelectorAll('.our-projects-tile');
+    
+        ourProjectsTiles.forEach(tile => {
+            tile.addEventListener('mouseover', () => {
+                tile.classList.add('our-projects-tile--active');
+            });
+    
+            tile.addEventListener('mouseout', () => {
+                tile.classList.remove('our-projects-tile--active');
+            });
+        });
+    
+        // End Our Projects
+    </script>
+
+
+
+    
+</body>
+</html>
