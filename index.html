@@ -471,10 +471,10 @@
                     <a href="#" class="navbar-menu-link">Home</a>
                 </li>
                 <li class="navbar-menu-item">
-                    <a href="#" class="navbar-menu-link">About Us</a>
+                    <a href="#about-us" class="navbar-menu-link">About Us</a>
                 </li>
                 <li class="navbar-menu-item">
-                    <a href="#" class="navbar-menu-link">Our Projects</a>
+                    <a href="#our-projects" class="navbar-menu-link">Our Projects</a>
                 </li>
                 <li class="navbar-menu-item">
                     <a href="#" class="navbar-menu-link">Contact</a>
@@ -513,7 +513,7 @@
 
     <!-- About Us -->
 
-    <section class="about-us">
+    <section class="about-us" id="about-us">
         <div class="container about-us-container">
             <div class="about-us-content">
                 <h2 class="about-us-title">About Us</h2>
@@ -551,7 +551,7 @@
 
     <!-- Our Projects -->
 
-    <section class="our-projects">
+    <section class="our-projects" id="our-projects">
         <div class="container our-projects-container">
             <div class="our-projects-content">
                 <h2 class="our-projects-title">Our Projects</h2>
@@ -616,6 +616,7 @@
         </div>
     </footer>
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         // Navbar
 
@@ -635,63 +636,97 @@
             });
         });
 
+        // Scroll when clicking on a link
+        const navbarMenuLinksScroll = document.querySelectorAll('.navbar-menu-link[href^="#"]');
+        const navbarHamburgerMenuLinksScroll = document.querySelectorAll('.navbar-menu-list--active .navbar-menu-link[href^="#"]');
 
-        // Get the typed-text element
-        const typedText = document.querySelector('#logo');
+        navbarMenuLinksScroll.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
 
-        // Get the cursor element
-        const cursor = document.querySelector('.cursor');
-      
-        // Define the text to be typed
-        const textToType = "krauzeandlesiecki.dev";
-      
-        // Set the initial values
-        let textIndex = 0;
-        let isDeleting = false;
-      
-        // Function to simulate typing effect
-        function type() {
-          // Get the current text
-          const currentText = textToType.substring(0, textIndex);
-      
-          // Set the text of the typed-text element
-          typedText.textContent = currentText;
-      
-          // Increment or decrement the text index based on whether we are typing or deleting
-          if (isDeleting) {
-            textIndex--;
-          } else {
-            textIndex++;
-          }
-      
-          // Calculate the typing speed randomly
-          const typingSpeed = Math.random() * 200 + 100;
-      
-          // Set a shorter delay when deleting the text
-          const delay = isDeleting ? typingSpeed / 1 : typingSpeed;
-      
-          // Add or remove the blink class to show/hide the cursor
-          if (isDeleting) {
-            cursor.classList.add('blink');
-          } else {
-            cursor.classList.remove('blink');
-          }
-      
-          // Check if we have typed/deleted all the text
-          if (!isDeleting && textIndex === textToType.length) {
-            // Set the isDeleting flag to true for deleting effect
-            isDeleting = true;
-          } else if (isDeleting && textIndex === 0) {
-            // Reset the isDeleting flag and move to typing effect
-            isDeleting = false;
-          }
-      
-          // Call the type function recursively after the delay
-          setTimeout(type, delay);
-        }
-      
-        // Start the typing effect
-        setTimeout(type, 1000);
+                const href = link.getAttribute('href');
+                const offsetTop = document.querySelector(href).offsetTop;
+
+                scroll({
+                    top: offsetTop,
+                    behavior: "smooth"
+                });
+            });
+        });
+
+        navbarHamburgerMenuLinksScroll.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+
+                const href = link.getAttribute('href');
+                const offsetTop = document.querySelector(href).offsetTop;
+
+                scroll({
+                    top: offsetTop,
+                    behavior: "smooth"
+                });
+            });
+        });
+
+
+
+        // Typing effect
+            // Get the typed-text element
+            const typedText = document.querySelector('#logo');
+
+            // Get the cursor element
+            const cursor = document.querySelector('.cursor');
+        
+            // Define the text to be typed
+            const textToType = "krauzeandlesiecki.dev";
+        
+            // Set the initial values
+            let textIndex = 0;
+            let isDeleting = false;
+        
+            // Function to simulate typing effect
+            function type() {
+            // Get the current text
+            const currentText = textToType.substring(0, textIndex);
+        
+            // Set the text of the typed-text element
+            typedText.textContent = currentText;
+        
+            // Increment or decrement the text index based on whether we are typing or deleting
+            if (isDeleting) {
+                textIndex--;
+            } else {
+                textIndex++;
+            }
+        
+            // Calculate the typing speed randomly
+            const typingSpeed = Math.random() * 200 + 100;
+        
+            // Set a shorter delay when deleting the text
+            const delay = isDeleting ? typingSpeed / 1 : typingSpeed;
+        
+            // Add or remove the blink class to show/hide the cursor
+            if (isDeleting) {
+                cursor.classList.add('blink');
+            } else {
+                cursor.classList.remove('blink');
+            }
+        
+            // Check if we have typed/deleted all the text
+            if (!isDeleting && textIndex === textToType.length) {
+                // Set the isDeleting flag to true for deleting effect
+                isDeleting = true;
+            } else if (isDeleting && textIndex === 0) {
+                // Reset the isDeleting flag and move to typing effect
+                isDeleting = false;
+            }
+        
+            // Call the type function recursively after the delay
+            setTimeout(type, delay);
+            }
+        
+            // Start the typing effect
+            setTimeout(type, 1000);
 
         // End Navbar
     
@@ -711,9 +746,5 @@
     
         // End Our Projects
     </script>
-
-
-
-    
 </body>
 </html>
