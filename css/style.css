@@ -27,6 +27,7 @@
         }
 
         .navbar-container {
+            position: relative;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -75,12 +76,18 @@
         .navbar-menu-link {
             color: #fff;
             text-decoration: none;
+            transition: color 0.3s ease;
         }
 
         .navbar-menu-link:hover {
-            color: #fff;
+            color: #39c8e7;
             text-decoration: underline;
         }
+
+        .navbar-menu-link.active {
+            color: #39c8e7;
+            /* Add your desired styling for the active link */
+        }        
 
         .navbar-hamburger-menu {
             display: none;

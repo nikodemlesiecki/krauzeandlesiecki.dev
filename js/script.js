@@ -1,4 +1,5 @@
-        // Navbar
+       // Navbar
+            // hamburger menu
             const navbarMenuList = document.querySelector('.navbar-menu-list');
             const navbarHamburgerMenu = document.querySelector('.navbar-hamburger-menu');
 
@@ -47,9 +48,37 @@
                 });
             });
 
+            // End Scroll when clicking on a link
 
+            // Get all the navbar menu links
+            const menuLinks = document.querySelectorAll('.navbar-menu-link');
 
-        // Typing effect
+            // Function to add or remove the "active" class from menu links
+            function setActiveLink() {
+                // Get the current scroll position
+                const scrollPosition = window.scrollY;
+
+                // Iterate over each menu link
+                menuLinks.forEach(link => {
+                    // Get the target section based on the link's href attribute
+                    const section = document.querySelector(link.getAttribute('href'));
+
+                    // Check if the section is in the viewport
+                    if (section.offsetTop <= scrollPosition && section.offsetTop + section.offsetHeight > scrollPosition) {
+                        // Add the "active" class to the link
+                        link.classList.add('active');
+                    } else {
+                        // Remove the "active" class from the link
+                        link.classList.remove('active');
+                    }
+                });
+            }
+
+            // Call the setActiveLink function on page load and scroll events
+            window.addEventListener('DOMContentLoaded', setActiveLink);
+            window.addEventListener('scroll', setActiveLink);
+
+        // Logo typing effect
             // Get the typed-text element
             const typedText = document.querySelector('#logo');
 
