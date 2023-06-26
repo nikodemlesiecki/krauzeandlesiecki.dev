@@ -274,6 +274,81 @@
 
         /* End Our Projects */
 
+        /* Contact Us Form */
+
+        .contact-form {
+            padding: 100px 0;
+        }
+
+        .contact-form-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .contact-form-content {
+            text-align: center;
+        }
+
+        .contact-form-title {
+            font-size: 50px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .contact-form-description {
+            font-size: 20px;
+            margin-bottom: 50px;
+        }
+
+        .contact-form-input {
+            display: block;
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .contact-form-textarea {
+            display: block;
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .contact-form-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #fff;
+            color: #000;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .contact-form-button:hover {
+            background-color: #000;
+            color: #fff;
+        }
+
+        .contact-form-error-message {
+            color: red;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+
+
+        /* End Contact Us */
+
         /* Footer */
 
         .footer {
@@ -423,6 +498,24 @@
 
             /* End Our Projects */
 
+            /* Contact Us */
+
+            @media (max-width: 768px) {
+                .contact-form-container {
+                    flex-direction: column;
+                }
+
+                .contact-form-input {
+                    max-width: 100%;
+                }
+
+                .contact-form-textarea {
+                    max-width: 100%;
+                }
+            }
+
+            /* End Contact Us */
+
             /* Footer */
 
             @media (max-width: 768px) {
@@ -430,16 +523,12 @@
                     flex-direction: column;
                 }
 
-                .footer-logo {
+                .footer-socials-list {
                     margin-bottom: 20px;
                 }
 
-                .footer-socials-list {
-                    flex-direction: column;
-                }
-
                 .footer-socials-item {
-                    margin: 10px 0;
+                    margin: 0 5px;
                 }
             }
 
