@@ -43,4 +43,6 @@ Contributions are welcome! If you have any suggestions, improvements, or bug fix
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE).
+This project is licensed under the [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=flat)](https://opensource.org/licenses/MIT)
+
+
